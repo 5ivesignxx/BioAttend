@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>BioAttend</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+
+    <!-- FIX: Remove UIMainStoryboardFile entirely so the window is
+         created programmatically in AppDelegate — this is the key fix
+         for the half-screen issue on iPhone 16 Pro Max -->
+
+    <!-- Supported Devices -->
+    <key>UIDeviceFamily</key>
+    <array>
+        <integer>1</integer>
+        <integer>2</integer>
+    </array>
+
+    <!-- FIX: Declare supported orientations explicitly -->
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+
+    <!-- FIX: Full-screen launch - no storyboard -->
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+
+    <!-- FIX: Requires full screen (disables slide-over/split view on iPad
+         which can cause "half screen" display) -->
+    <key>UIRequiresFullScreen</key>
+    <true/>
+
+    <!-- Minimum iOS -->
+    <key>MinimumOSVersion</key>
+    <string>15.0</string>
+
+    <!-- Permissions -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>BioAttend needs your location to verify you are on office premises before marking attendance.</string>
+
+    <key>NSFaceIDUsageDescription</key>
+    <string>BioAttend uses Face ID to securely verify your identity when checking in or out.</string>
+
+    <!-- App Transport Security -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <false/>
+    </dict>
+</dict>
+</plist>
